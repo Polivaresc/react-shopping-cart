@@ -1,7 +1,11 @@
 const Shoppage = () => {
     return ( 
-        <div>
-            Shop Page
+        <div className="shop-page">
+            <div className="sticky-bar">
+                <span>Items in cart : 0</span>
+                <button>Go to cart</button>
+            </div>
+            <div>Shop Items</div>
         </div>
     )
 }
