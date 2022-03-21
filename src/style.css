@@ -3,6 +3,11 @@
 body {
   margin: 0;
   font-family: 'Nunito Sans', sans-serif;
+  --light-green: #A6E14E;
+  --dark-green: #83AE44;
+  --dark-orange: #EB7927;
+  --light-orange: #FCA31E;
+  --yellow: #FDCE5D;
 }
 
 h1 {
@@ -33,10 +38,25 @@ h1 {
   color: black;
 }
 
+.cart-button {
+  background-color: white;
+}
+
+.cart-button:hover {
+  color: var(--dark-green);
+  border: 1px solid var(--dark-green);
+}
+
 .logo {
+  display: flex;
+  gap: 4rem;
   text-decoration: none;
   font-size: large;
   color: black;
+}
+
+.link:hover {
+  color: var(--dark-orange);
 }
 
 /* .shop-page {
@@ -44,7 +64,7 @@ h1 {
 } */
 
 .sticky-bar {
-  background-color: rgba(74, 168, 255, 0.452);
+  background-color: var(--light-green);
   padding: 1rem;
   width: clamp(150px, 20%, 300px);
   display: grid;
@@ -58,7 +78,6 @@ button {
   font-family: inherit;
   font-size: medium;
   border: 1px solid black;
-  background: none;
   padding: 5px 8px;
 }
 
@@ -66,3 +85,74 @@ button:hover {
   cursor: pointer;
 }
 
+.home-background, .shop-background {
+  position: relative;
+  overflow: hidden;
+}
+
+.home-background {
+  height: 45rem;
+}
+
+.shop-background {
+  height: 25rem;
+}
+
+.home-background>img, .shop-background>img {
+  position: absolute;
+  width: 100%;
+  top: 20%;     
+  left: 50%;
+  transform: translate( -50%, -50%);
+  opacity: .7;
+}
+
+.home-cards {
+  padding: 5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 15px;
+  justify-items: center;
+}
+
+article {
+  width: 20rem;
+  padding: 1rem 2rem;
+  border: 2px solid var(--light-orange);
+  border-radius: 20px;
+}
+
+article:hover {
+  border-color: var(--yellow);
+}
+
+article>h3 {
+  border-bottom: 1px solid var(--yellow);
+}
+
+p {
+  line-height: 1.6;
+}
+
+.reviews {
+  padding: 4rem;
+  background-color: black;
+  height: fit-content;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 50px;
+  justify-items: center;
+}
+
+.reviews>div {
+  background-color: white;
+  width: 15rem;
+  height: 5rem;
+  font-size: small;
+  border-radius: 20px;
+  padding: 1rem;
+}
+
+.stars {
+  color: var(--yellow);
+}
