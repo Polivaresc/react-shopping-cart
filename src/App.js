@@ -1,14 +1,18 @@
-import { Link } from "react-router-dom";
-import Nav from "./components/Nav";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Homepage from "./components/Homepage";
+import Shoppage from "./components/Shoppage";
+import Nav from "./components/Nav";
 
-function App() {
-  return (
-    <div className="App">
-      <Nav/>
-      <Homepage/>
-    </div>
-  );
+const App = () => {
+    return (
+        <Router>
+            <Nav/>
+            <Routes>
+              <Route path="/" exact element={<Homepage/>}/>
+              <Route path="shop" element={<Shoppage/>}/>
+            </Routes>
+        </Router>
+    )
 }
 
 export default App;
