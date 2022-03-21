@@ -5,6 +5,14 @@ const Homepage = () => {
     return (
         <div>
             <div className="home-background"></div>
+            <HomeCards/>
+            <HomeReviews/>
+        </div>
+    )
+}
+
+const HomeCards = () => {
+    return (
             <div className="home-cards">
                 <article>
                     <h3>Fruit plants</h3>
@@ -22,6 +30,11 @@ const Homepage = () => {
                     <p>Nam libero tempore, cum soluta nobis impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.</p>
                 </article>
             </div>
+    )
+}
+
+const HomeReviews = () => {
+    return (
             <div className="reviews">
                 <div>
                     <div className="stars"><FontAwesomeIcon icon={faStar}/><FontAwesomeIcon icon={faStar}/><FontAwesomeIcon icon={faStar}/><FontAwesomeIcon icon={faStar}/></div>
@@ -48,7 +61,6 @@ const Homepage = () => {
                     <p>Nam libero tempore, quo minus id quod maxime, omnis voluptas assumenda est.</p>
                 </div>
             </div>
-        </div>
     )
 }
 
