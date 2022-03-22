@@ -25,7 +25,7 @@ const HomeCards = () => {
                     <p>Nam libero tempore, cum soluta nobis est eligendi optio id quod maxime placeat facere possimus, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.</p>
                 </article>
                 <article>
-                    <h3>Cactus and succulents</h3>
+                    <h3>Aromatic plants</h3>
                     <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in cu laborum.</p>
                     <p>Nam libero tempore, cum soluta nobis impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.</p>
                 </article>
