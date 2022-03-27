@@ -1,11 +1,12 @@
 import { Link, useParams } from "react-router-dom";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRotateLeft } from "@fortawesome/free-solid-svg-icons";
 
 const Items = () => {
     return (
         items.map((item) => (
             <Link to={"/shop/" + item.id} className="item-link" key={item.id}>
-                <div className="item-picture" style={{ background: "url(" + item.picture + ") no-repeat center center", backgroundSize: "cover"}} alt={item.plantName}></div>
+                <div className="item-picture" style={{ background: "url(" + item.picture + ") no-repeat center center", backgroundSize: "cover"}}></div>
                 <div className="item-info"><span>{item.plantName}</span><span>{item.price} €</span></div>
             </Link>
         ))
@@ -18,18 +19,21 @@ const ItemDetail = () => {
         return item.id === parseInt(params.id)
     })
     return (
-            <div className="item">
-                <h3>{item.plantName}</h3>
-                <div>
-                    <img src={item.picture} alt={item.plantName}/>
-                </div>
-                <div className='item-details'>
-                    <div>{item.price} €</div>
+        <div className="item">
+            <div>
+                <div className="item-title">
+                    <h3>{item.plantName}</h3>
                     <div className="item-type">{item.type}</div>
-                    <input type="number"/>
-                    <button>Add to cart</button>
                 </div>
+                <div className="item-detail-picture" style={{ background: "url(" + item.picture + ") no-repeat center center", backgroundSize: "cover"}}></div>
             </div>
+            <div className='item-details'>
+                <div> {item.price} €</div>
+                <input type="number"/>
+                <button className="add-to-cart">Add to cart</button>
+                <Link to="/shop" className="link"><span>Continue shopping</span><FontAwesomeIcon icon={faArrowRotateLeft}/></Link>
+            </div>
+        </div>
     )
 }
 
