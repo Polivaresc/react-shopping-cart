@@ -1,8 +1,14 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faXmark, faCreditCard } from "@fortawesome/free-solid-svg-icons";
 
 const Cart = (props) => {
     const { setShowCart } = props
+    let totalPrice = 0
+
+    /* function calcPrice(item) {
+        totalPrice += item.quantity * item.price
+    } */
+
     return (
         <div className="shopping-cart">
             <div className="cart-head">
@@ -12,8 +18,8 @@ const Cart = (props) => {
             <ul className="cart-items">
                 <li><span>Item name </span><span> x2</span></li>
             </ul>
-            <div className="cart-head"><span>Total:</span><span>15€</span></div>
-            <button className="pay-button">Pay</button>
+            <div className="cart-footer"><span>Total:</span><span>{totalPrice} €</span></div>
+            <button className="pay-button"><span>Pay</span><FontAwesomeIcon icon={faCreditCard}/></button>
         </div>
     )
 }
