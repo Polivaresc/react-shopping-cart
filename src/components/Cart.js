@@ -5,10 +5,6 @@ const Cart = (props) => {
     const { setShowCart } = props
     let totalPrice = 0
 
-    /* function calcPrice(item) {
-        totalPrice += item.quantity * item.price
-    } */
-
     return (
         <div className="shopping-cart">
             <div className="cart-head">

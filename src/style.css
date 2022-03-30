@@ -16,7 +16,7 @@ input {
   border: 1px solid rgb(209, 209, 209);
 }
 
-input:focus {
+input:focus, input:hover {
   border-color: var(--light-green);
 }
 
@@ -38,6 +38,7 @@ h3 {
 
 .nav-bar {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   gap: 3rem;
