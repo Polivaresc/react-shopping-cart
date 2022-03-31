@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRotateLeft, faCartArrowDown } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Items = (props) => {
     const { itemsList } = props
@@ -31,9 +31,13 @@ const ItemDetail = (props) => {
         const newQuantity = parseInt(e.target.value)
         setQuantity(newQuantity)
         cartItem.quantity = newQuantity
-        cartItem.totalPrice = newQuantity * cartItem.price
+        cartItem.totalPrice = (newQuantity * cartItem.price).toFixed(2)
         setCurrentItem(cartItem)
     }
+
+    useEffect(() => {
+        cartItem.quantity = quantity
+    }, [quantity])
 
     const relatedItems = itemsList.filter((it) => it.type === item.type && it !== item)
 
