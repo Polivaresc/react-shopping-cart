@@ -1,9 +1,22 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark, faCreditCard, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useState } from "react";
 
 const Cart = (props) => {
     const { setShowCart, cartItems } = props
-    let totalPrice = 0
+    const [totalPrice, setTotalPrice] = useState(0)
+
+    function removeItem(e) {
+        console.log(123)
+    }
+
+    useEffect(() => {
+        let prices = totalPrice
+        cartItems.map((cartItem) => {
+            return prices += cartItem.totalPrice
+        })
+        setTotalPrice(prices)
+    }, [cartItems])
 
     return (
         <div className="shopping-cart">
@@ -18,7 +31,7 @@ const Cart = (props) => {
                                 <span>{cartItem.plantName}</span>
                                 <span>x{cartItem.quantity}</span>
                                 <span>{cartItem.totalPrice} €</span>
-                                <FontAwesomeIcon icon={faTrashCan} />
+                                <FontAwesomeIcon icon={faTrashCan} onClick={removeItem}/>
                             </div>
                         ) 
                         : 'Your cart is empty!'
