@@ -41,10 +41,15 @@ const App = () => {
         console.log(cartItems)
     }     
 
+    function removeItem(item) {
+        setCartItems(cartItems.filter((cartItem) => cartItem.id !== item.id))
+        console.log(cartItems)
+    }
+
     return ( 
         <Router>
             <Nav setShowCart={setShowCart} totalCartItems={cartItems.length}/>
-            {showCart && <Cart setShowCart={setShowCart} cartItems={cartItems}/>}
+            {showCart && <Cart setShowCart={setShowCart} removeItem={removeItem} cartItems={cartItems}/>}
             <Routes>
               <Route path="/" exact element={<Homepage />}/>
               <Route path="shop">

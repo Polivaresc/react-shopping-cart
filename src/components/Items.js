@@ -28,7 +28,7 @@ const ItemDetail = (props) => {
     const [currentItem, setCurrentItem] = useState(cartItem)
 
     function handleQuantitity(e) {
-        const newQuantity = parseInt(e.target.value)
+        const newQuantity = parseFloat(e.target.value)
         setQuantity(newQuantity)
         cartItem.quantity = newQuantity
         cartItem.totalPrice = (newQuantity * cartItem.price).toFixed(2)

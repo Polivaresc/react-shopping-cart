@@ -3,17 +3,13 @@ import { faXmark, faCreditCard, faTrashCan } from "@fortawesome/free-solid-svg-i
 import { useEffect, useState } from "react";
 
 const Cart = (props) => {
-    const { setShowCart, cartItems } = props
-    const [totalPrice, setTotalPrice] = useState(0)
-
-    function removeItem(e) {
-        console.log(123)
-    }
+    const { setShowCart, cartItems, removeItem } = props
+    const [totalPrice, setTotalPrice] = useState(0) 
 
     useEffect(() => {
-        let prices = totalPrice
+        let prices = 0
         cartItems.map((cartItem) => {
-            return prices += cartItem.totalPrice
+            return prices += parseFloat(cartItem.totalPrice)
         })
         setTotalPrice(prices)
     }, [cartItems])
@@ -31,10 +27,10 @@ const Cart = (props) => {
                                 <span>{cartItem.plantName}</span>
                                 <span>x{cartItem.quantity}</span>
                                 <span>{cartItem.totalPrice} €</span>
-                                <FontAwesomeIcon icon={faTrashCan} onClick={removeItem}/>
+                                <FontAwesomeIcon icon={faTrashCan} className="delete-icon" onClick={() => removeItem(cartItem)}/>
                             </div>
                         ) 
-                        : 'Your cart is empty!'
+                        : <div className="empty-cart">Your cart is empty!</div>
                     }
                 </li>
             </ul>
