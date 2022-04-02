@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRotateLeft, faCartArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
@@ -31,7 +31,7 @@ const ItemDetail = (props) => {
         const newQuantity = parseFloat(e.target.value)
         setQuantity(newQuantity)
         cartItem.quantity = newQuantity
-        cartItem.totalPrice = (newQuantity * cartItem.price).toFixed(2)
+        cartItem.totalPrice = (newQuantity * cartItem.price).toFixed(2)*1
         setCurrentItem(cartItem)
     }
 
@@ -72,10 +72,10 @@ const RelatedItem = (props) => {
     const { relatedItem } = props
 
     return(
-        <div className="related-product">
+        <a href={"/shop/" + relatedItem.id} className="related-product">
             <div style={{ background: "url(" + relatedItem.picture + ") no-repeat center center", backgroundSize: "cover", width: "8rem", height: "8rem"}}></div>
             <div>{relatedItem.plantName}</div>
-        </div>
+        </a>
     )
 }
 

@@ -10,6 +10,11 @@ body {
   --yellow: #FDCE5D;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 ul, li {
   list-style: none;
   margin: 0;
@@ -261,7 +266,7 @@ p {
 }
 
 .item-related {
-  margin-top: 8rem;
+  margin: 4rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -297,7 +302,7 @@ p {
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
-.cart-head, .cart-footer {
+.cart-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -310,6 +315,9 @@ p {
 
 .cart-footer {
   border-top: 1px dotted black;
+  display: grid;
+  grid-template-columns: 4fr 2fr 1fr;
+  align-items: center;
 }
 
 .close-cart {
@@ -321,17 +329,19 @@ p {
   color: var(--dark-orange);
 }
 
-cart-items-list {
+.cart-items-list {
     margin: 6px 0;
 }
 
 .cart-item {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 3fr 1fr 2fr 1fr;
   align-items: center;
-  justify-items: end;
-  justify-content: space-between;
   padding: 5px 0;
+}
+
+.cart-item-price {
+  justify-self: end;
 }
 
 .pay-button {
@@ -347,6 +357,7 @@ cart-items-list {
 
 .delete-icon {
   color: rgb(202, 209, 205);
+  justify-self: end;
 }
 
 .delete-icon:hover {

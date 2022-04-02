@@ -21,20 +21,18 @@ const Cart = (props) => {
                 <span className="close-cart" onClick={() => setShowCart(false)}><FontAwesomeIcon icon={faXmark}/></span>
             </div>
             <ul className="cart-items-list">
-                <li>
                     {cartItems.length ? cartItems.map((cartItem) => 
-                            <div key={cartItem.id} className="cart-item">
+                            <li key={cartItem.id} className="cart-item">
                                 <span>{cartItem.plantName}</span>
                                 <span>x{cartItem.quantity}</span>
-                                <span>{cartItem.totalPrice} €</span>
+                                <span className="cart-item-price">{cartItem.totalPrice} €</span>
                                 <FontAwesomeIcon icon={faTrashCan} className="delete-icon" onClick={() => removeItem(cartItem)}/>
-                            </div>
+                            </li>
                         ) 
                         : <div className="empty-cart">Your cart is empty!</div>
                     }
-                </li>
             </ul>
-            <div className="cart-footer"><span>Total:</span><span>{totalPrice} €</span></div>
+            <div className="cart-footer"><span>Total:</span><span className="cart-item-price">{totalPrice} €</span></div>
             <button className="pay-button"><span>Pay</span><FontAwesomeIcon icon={faCreditCard}/></button>
         </div>
     )

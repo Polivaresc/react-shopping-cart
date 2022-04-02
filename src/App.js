@@ -54,7 +54,7 @@ const App = () => {
               <Route path="/" exact element={<Homepage />}/>
               <Route path="shop">
                   <Route index element={<Shoppage itemsList={itemsList}/>}/>
-                  <Route path=":id" element={<ItemDetail addItemToCart={addItemToCart} itemsList={itemsList}/>}/>
+                  <Route path=":id" exact element={<ItemDetail addItemToCart={addItemToCart} itemsList={itemsList}/>}/>
               </Route>
             </Routes>
         </Router>
