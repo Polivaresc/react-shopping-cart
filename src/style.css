@@ -364,3 +364,27 @@ p {
   cursor: pointer;
   color: rgb(170, 173, 172);
 }
+
+/* MODAL CART STYLES */
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-box {
+  background-color: white;
+  font-size: large;
+  margin: auto;
+  padding: 50px 70px;
+  border: 2px solid var(--light-green);
+  border-radius: 20px;
+}

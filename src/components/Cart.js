@@ -3,7 +3,7 @@ import { faXmark, faCreditCard, faTrashCan } from "@fortawesome/free-solid-svg-i
 import { useEffect, useState } from "react";
 
 const Cart = (props) => {
-    const { setShowCart, cartItems, removeItem } = props
+    const { setShowCart, cartItems, removeItem, showModal } = props
     const [totalPrice, setTotalPrice] = useState(0) 
 
     useEffect(() => {
@@ -33,7 +33,7 @@ const Cart = (props) => {
                     }
             </ul>
             <div className="cart-footer"><span>Total:</span><span className="cart-item-price">{totalPrice} €</span></div>
-            <button className="pay-button"><span>Pay</span><FontAwesomeIcon icon={faCreditCard}/></button>
+            <button className="pay-button" onClick={showModal}><span>Pay</span><FontAwesomeIcon icon={faCreditCard}/></button>
         </div>
     )
 }

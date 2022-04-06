@@ -5,9 +5,11 @@ import { ItemDetail } from "./components/Items";
 import Nav from "./components/Nav";
 import Cart from "./components/Cart";
 import { useState } from "react";
+import Modal from "./components/Modal";
 
 const App = () => {
     const [showCart, setShowCart] = useState(false)
+    const [modal, setModal] = useState(false)
     const [cartItems, setCartItems] = useState([])
 
     const itemsList = [
@@ -29,6 +31,17 @@ const App = () => {
 
     ]
 
+    function showModal() {
+        if(cartItems.length) {
+            setModal(true)
+        }
+    }
+
+    function processOrder() {
+        setModal(false)
+        setCartItems([]) 
+    }
+
     function addItemToCart(newItem) {
         const idx = cartItems.findIndex(item => item.id === newItem.id)
         if (idx >= 0) {
@@ -49,7 +62,8 @@ const App = () => {
     return ( 
         <Router>
             <Nav setShowCart={setShowCart} totalCartItems={cartItems.length}/>
-            {showCart && <Cart setShowCart={setShowCart} removeItem={removeItem} cartItems={cartItems}/>}
+            {showCart && <Cart setShowCart={setShowCart} showModal={showModal} removeItem={removeItem} cartItems={cartItems}/>}
+            {modal && <Modal processOrder={processOrder}/>}
             <Routes>
               <Route path="/" exact element={<Homepage />}/>
               <Route path="shop">
